@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN python -m pip install nuitka
+RUN python . bdist
 
-RUN python -m nuitka hello.py
-
-CMD ls -la
+CMD ls -la ./dist/*.tar.gz
