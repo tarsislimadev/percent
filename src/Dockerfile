@@ -2,7 +2,7 @@ FROM tmvdl/python
 
 WORKDIR /app
 
-COPY . .
+COPY app .
 
 RUN python ./main.py bdist
 
