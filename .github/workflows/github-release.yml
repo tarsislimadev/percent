@@ -17,7 +17,7 @@ jobs:
         run: docker-compose build release
 
       - name: List files
-        run: docker run release ls -laR
+        run: docker run -v $(pwd)/dist:/dist release ls -laR /dist
 
       - name: Export app
         run: docker run -v $(pwd)/dist:/dist release cp ./dist/* /dist -rfv
