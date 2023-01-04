@@ -16,7 +16,10 @@ jobs:
       - name: Build app
         run: docker-compose build release
 
+      - name: Export app
+        run: docker run -v $(pwd)/dist:/dist -w /dist release cp /app/dist/* . -rfv
+
       - name: Create release
-        run: gh release create v$( date +%Y%m%d%H%M ) ./dist/main
+        run: gh release create v$( date +%Y%m%d%H%M ) ./dist/*.tar.gz
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
