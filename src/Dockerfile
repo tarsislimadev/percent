@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN python . bdist
+RUN python ./main.py bdist
 
 CMD ls -la ./dist/*.tar.gz
