@@ -1,3 +1,10 @@
+from distutils.core import setup
+
+setup(
+  name='percent', 
+  version='0.1'
+)
+
 def main():
   print("Hello World")
 
