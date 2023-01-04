@@ -16,11 +16,8 @@ jobs:
       - name: Build app
         run: docker-compose build release
 
-      - name: List files
-        run: docker run -v $(pwd)/dist:/dist release ls -laR ./dist
-
       - name: Export app
-        run: docker run -v $(pwd)/dist:/dist release cp ./dist/* /dist -rfv
+        run: docker run -v $(pwd)/dist:/dist release cp /app/dist/percent-0.1.linux-x86_64.tar.gz /dist -rfv
 
       - name: Create release
         run: gh release create v$( date +%Y%m%d%H%M ) ./dist/*.tar.gz
