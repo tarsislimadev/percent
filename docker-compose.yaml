@@ -8,4 +8,6 @@ services:
       - './src/app'
 
   release:
+    image: 'release'
     build: './src'
+
