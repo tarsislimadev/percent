@@ -20,7 +20,7 @@ jobs:
         run: docker run release ls -laR
 
       - name: Export app
-        run: docker run -v $(pwd)/dist:/dist -w /dist release cp /app/dist/* . -rfv
+        run: docker run -v $(pwd)/dist:/dist release cp ./dist/* /dist -rfv
 
       - name: Create release
         run: gh release create v$( date +%Y%m%d%H%M ) ./dist/*.tar.gz
