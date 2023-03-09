@@ -1,4 +1,4 @@
-FROM tmvdl/python
+FROM tmvdl/python:latest
 
 WORKDIR /app
 
