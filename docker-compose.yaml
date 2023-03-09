@@ -14,12 +14,6 @@ services:
     ports:
       - '8080:80'
 
-  git:
-    image: 'git'
-    build: './src/git'
-    ports:
-      - '2020:22'
-
   release:
     image: 'release'
     build: './src'
@@ -27,13 +21,3 @@ services:
   github-release:
     image: 'github-release'
     build: './src'
-
-  www:
-    image: 'tmvdl/projects:apply'
-    build: './src/www'
-    volumes:
-      - './src/www/html:/usr/share/nginx/html'
-    ports:
-      - '80:80'
-    depends_on:
-      - 'api'
